@@ -1,0 +1,58 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Matrixulator.addition"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel  Background="SkyBlue" Grid.Row="0" Margin="0">
+            <TextBlock Text="Matrix Addition" Foreground="White" FontSize="60" Margin="20,10,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="auto" Height="auto">
+                <StackPanel Margin="0" Orientation="Horizontal">
+                    <TextBlock Foreground="White" VerticalAlignment="Top" FontSize="30" Text="Select dimension" Name="slectdim"  Margin="20,20,30,0" Width="auto" Height="auto"/>
+                    <toolkit:ListPicker BorderBrush="White" Foreground="White" Name="rowpick" Width="120">
+                      
+                    </toolkit:ListPicker>
+                    <toolkit:ListPicker BorderBrush="White" Foreground="White" Name="columnpick" Width="120">
+                    
+                    </toolkit:ListPicker>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+
+        <ScrollViewer  Name="resu" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="auto" Height="auto">
+            <!--ContentPanel - place additional content here-->
+            <Grid x:Name="ContentPanel" Grid.RowSpan="4" >
+                <StackPanel Name="holdgrids" Orientation="Horizontal">
+                    <Grid  x:Name="Grid1"  ShowGridLines="True" HorizontalAlignment="Left" Height="auto" Margin="20,20" VerticalAlignment="Top" Width="auto"/>
+                    <Grid  Name="Grid2"  ShowGridLines="True" HorizontalAlignment="Left" Height="auto" Margin="50,20,30,0" VerticalAlignment="Top" Width="auto"/>
+                    <Button Name="solve" Background="SkyBlue" Width="110" Height="80"  Visibility="Collapsed" VerticalAlignment="Top" Content="Solve" Click="solve_Click"/>
+                    <Grid  Name="Grid3"  ShowGridLines="True" Height="auto"  MaxHeight="420" Margin="20,20" Width="auto" Visibility="Collapsed"/>
+                  
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        
+        
+
+    </Grid>
+</phone:PhoneApplicationPage>
